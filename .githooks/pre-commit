@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Git hook for every get-due repo (core.hooksPath points here via
+# ~/.config/git/get-due.config). Blocks the commit unless it will be signed
+# and shown as "Verified" on GitHub. Also used as pre-merge-commit.
+set -uo pipefail
+
+verify="$(cd "$(dirname "$0")/.." && pwd)/scripts/verify-commit-signing.sh"
+
+fail() {
+  echo "COMMIT BLOCKED: the commit would not be Verified on GitHub." >&2
+  echo "Reason: $1" >&2
+  exit 1
+}
+
+# `git commit --no-gpg-sign` still runs this hook; catch it from git's argv.
+args=$(ps -o args= -p "$PPID" 2>/dev/null || true)
+if grep -qE -- '--no-gpg-sign|commit\.gpgsign=(false|0|no|off)' <<<"$args"; then
+  fail "signing is disabled in the command: $args"
+fi
+
+reason=$("$verify" "$(git rev-parse --show-toplevel)" 2>&1) || fail "$reason"
+exit 0
