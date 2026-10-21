@@ -35,7 +35,7 @@ Same rules in every get-due repo.
   - `refactor`: restructuring without changing meaning or behavior (moving sections, splitting files)
   - `chore`: config, tooling, repo housekeeping
   - `ci`: CI/CD pipelines
-- Scopes: the area touched. In `docs`: `product`, `prd`, `modules`, `roadmap`. In `ai-config`: `claude`, `prompts`, `hub`. Use `init` only for a repo's first commit.
+- Scopes: the area touched. In `docs`: `product`, `prd`, `modules`, `roadmap`, `engineering`, `adr`. In `ai-config`: `claude`, `prompts`, `hub`. Use `init` only for a repo's first commit.
 - Summary: imperative mood, lowercase start, no trailing period, ≤ 72 characters. `docs(prd): add family tier limits`, not `Added family tier limits.`
 - Context that doesn't fit the summary (reasons, cross-file updates) goes in the PR description, not the commit.
 - Breaking changes (renamed IDs, removed modules or stories): add `!` after the scope (`docs(modules)!: renumber M05 stories`) and describe the impact in the PR description.
