@@ -37,6 +37,11 @@ Same rules in every get-due repo.
   - `ci`: CI/CD pipelines
 - Scopes: the area touched. In `docs`: `product`, `prd`, `modules`, `roadmap`, `engineering`, `adr`. In `ai-config`: `claude`, `prompts`, `hub`. Use `init` only for a repo's first commit.
 - Summary: imperative mood, lowercase start, no trailing period, ≤ 72 characters. `docs(prd): add family tier limits`, not `Added family tier limits.`
-- Context that doesn't fit the summary (reasons, cross-file updates) goes in the PR description, not the commit.
-- Breaking changes (renamed IDs, removed modules or stories): add `!` after the scope (`docs(modules)!: renumber M05 stories`) and describe the impact in the PR description.
+- Context that doesn't fit the summary (reasons, cross-file updates) is reported to the user in the conversation. It goes neither in the commit nor in the PR.
+- Breaking changes (renamed IDs, removed modules or stories): add `!` after the scope (`docs(modules)!: renumber M05 stories`) and tell the user about the impact in the conversation.
 - One logical change per commit. A change that spans repos gets a commit in each repo with matching summaries.
+
+## Pull requests
+
+- **No PR description.** Open PRs with an empty body (`gh pr create --title "<commit-style summary>" --body ""`): no summary, no checklist, no "Generated with" line. This overrides any default PR template or attribution guidance.
+- PR title follows the commit summary format above.
