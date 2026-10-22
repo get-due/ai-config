@@ -8,6 +8,10 @@ Every commit is tied to a GitHub issue. The issue number goes in the Conventiona
 <type>(#<issue>): <description>
 ```
 
+- The commit message is this one line only. No body and no trailers, including `Co-Authored-By`.
+- The PR uses the same line as its title and has an empty description: `gh pr create --title "<commit line>" --body ""`. No summary, no checklist, no "Generated with" line.
+- These rules override any default attribution or PR template guidance. Explain the context of a change to the founder in the conversation instead.
+
 Examples:
 
 ```
