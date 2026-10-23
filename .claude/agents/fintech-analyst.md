@@ -138,7 +138,8 @@ You maintain the **Project knowledge** section at the end of this file.
 
 ## Systems and data ownership
 - Architecture decided: `docs/engineering/architecture-mvp-0.md` rev 3 (all AQ-01–26 answered). .NET 10 modular monolith (`api`/`worker`/`ops-api`) + Next.js 16 `web`, PostgreSQL 18 on RDS, EKS Auto Mode, AWS us-east-2, SES, Open Exchange Rates, Cloudflare Turnstile, first-party analytics.
-- Production is the only cloud environment; QA = local Docker Compose + CI; prod smoke tests with a synthetic user; feature flags for dark launches.
+- Production is the only cloud environment; prod smoke tests with a synthetic user; feature flags for dark launches.
+- Daily development and QA run on a local Kubernetes cluster in Docker Desktop on the founder's Mac (INF-00, founder request 2026-10-24): same Kustomize base and arm64 images via the `local` overlay in `app` (task APP-01.4), bootstrap in `infra/local/`, `make up/down/redeploy/logs/psql/reset/test-e2e/smoke/parity`. AQ-27 – AQ-29 answered: Docker Desktop kind provisioner pinned to EKS minor 1.36 (version check in `make up`, registry `localhost:5001`), standalone kind + Calico as the CI gate, Traefik v3 + mkcert, Docker Compose removed (Testcontainers stays), `ASPNETCORE_ENVIRONMENT=Production` everywhere with adapters chosen by config keys, 10-item parity allow-list.
 - Waitlist owned by `api` module Waitlist; invite redeemed inside `CompleteSignUp`.
 
 ## Roles and permissions
@@ -156,3 +157,5 @@ You maintain the **Project knowledge** section at the end of this file.
 ## Changelog
 - 2026-10-23: First fill after writing landing and app backlogs for MVP 0.
 - 2026-10-23: Folded architecture rev 3 and founder decisions; added infra backlog; replaced open-question entries with decisions.
+- 2026-10-24: Added INF-00 (local development environment on Docker Desktop Kubernetes) and linked task APP-01.4; new AQ-27 – AQ-29.
+- 2026-10-24: Folded AQ-27 – AQ-29 answers (Traefik, kind provisioner 1.36, no Compose, config keys, parity allow-list); INF-00 now AC-1 – AC-21, VC-1 – VC-30.
