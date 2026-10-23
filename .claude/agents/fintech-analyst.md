@@ -128,22 +128,36 @@ You maintain the **Project knowledge** section at the end of this file.
 <!-- Maintained by the agent. Edit only this section. -->
 
 ## Glossary
-- (not yet filled)
+- Full glossaries: `docs/product/backlog-app.md` §2, `backlog-landing.md` §2, `backlog-infra.md` §2. Key terms: base currency (changeable, ABR-47), original / account / base amount (base = stored derived projection), pivot quote (units per 1 USD, OXR), reference rate vs "your rate" (override stored with its own currency), rate date (UTC), latest rate ("as of"), gap = possible hidden fee, fee found, balance check/adjustment, IOU, operator, step-up, feature flag, synthetic user, DSAR, size profile (beta/scale).
 
 ## Business rules
-- (not yet filled)
+- Source of truth: `docs/product/mvp-0-scope.md` (IDs final; never edit it). Scope changes in docs PR #20 (worldwide sign-up, AS-10, AS-17, AS-19 beta wording, AS-33, SEC-14, L-06 widened, L-13 sanctions, L-14 age) are treated as final (2026-10-23).
+- Derived rules: ABR-xx (`backlog-app.md` §4, incl. ABR-47 base change, ABR-48 residence/age) and LBR-xx (`backlog-landing.md` §3, incl. LBR-14 age 14+, LBR-15 persona). "Assumption" rows are unverified.
+- Money math: exact rational, round once half away from zero; architecture vectors T1–T9 are mandatory tests; QA fixture = pivot quotes in `backlog-app-02-currency-accounts.md`.
+- Free product, four $0 plans, one engineer, no dates, 10k MAU target, metrics tracked not gated.
 
 ## Systems and data ownership
-- (not yet filled)
+- Architecture decided: `docs/engineering/architecture-mvp-0.md` rev 3 (all AQ-01–26 answered). .NET 10 modular monolith (`api`/`worker`/`ops-api`) + Next.js 16 `web`, PostgreSQL 18 on RDS, EKS Auto Mode, AWS us-east-2, SES, Open Exchange Rates, Cloudflare Turnstile, first-party analytics.
+- Production is the only cloud environment; prod smoke tests with a synthetic user; feature flags for dark launches.
+- Daily development and QA run on a local Kubernetes cluster in Docker Desktop on the founder's Mac (INF-00, founder request 2026-10-24): same Kustomize base and arm64 images via the `local` overlay in `app` (task APP-01.4), bootstrap in `infra/local/`, `make up/down/redeploy/logs/psql/reset/test-e2e/smoke/parity`. AQ-27 – AQ-29 answered: Docker Desktop kind provisioner pinned to EKS minor 1.36 (version check in `make up`, registry `localhost:5001`), standalone kind + Calico as the CI gate, Traefik v3 + mkcert, Docker Compose removed (Testcontainers stays), `ASPNETCORE_ENVIRONMENT=Production` everywhere with adapters chosen by config keys, 10-item parity allow-list.
+- Waitlist owned by `api` module Waitlist; invite redeemed inside `CompleteSignUp`.
 
 ## Roles and permissions
-- (not yet filled)
+- User (own data only; others → 404). Operator = founder via ops console (port-forward + IAM Identity Center MFA): invites, notices, metrics, flags, DSAR log, waitlist lookup; no ledger grants. Emergency access: break-glass role, disclosure queued first, alerted.
 
 ## Spec conventions
-- (not yet filled)
+- Files: `backlog-landing.md` (LP-xx), `backlog-app.md` index + `backlog-app-01..07-*.md` (APP-xx), `backlog-infra.md` (INF-xx). Every story has a **Repo** field: `app`, `infra` or `docs`; issues live in the repo where the commit lands.
+- Each story: dev notes (endpoints under `/api/v1`, fields, errors with HTTP status, `Idempotency-Key`, events, NFRs, deps, AQ refs) and QA notes with numbered test cases and concrete data; infra uses verification cases (VC).
+- Docs in US English. Commits: `<type>(#<issue>): <description>`.
 
 ## Decisions
-- (not yet filled)
+- 2026-10-24 founder: two phases. Phase A "Local" = INF-00 + all landing/app build stories accepted on the local stand and CI; Phase B "AWS" = INF-01–15, APP-01.3, APP-04.2, APP-70.2, all "Prod check" rows, landing go-live, beta. Every story has a **Phase** field (A, B or A/B). Phase B entry criterion is defined in `backlog-app.md` §1.
+- 2026-10-23 founder: FQ-01 = yes (persona, LP-11 Should); FQ-02 = yes (base change, APP-68); worldwide sign-up with sanctions block and min age max(14, country override); no staging; repos `app` and `infra` approved.
+- Pending founder confirmation (reported as conflicts): MON-06 wording for base change, weekend rates "as published", Q1 options for non-US waitlist visitors.
 
 ## Changelog
-- (no updates yet)
+- 2026-10-23: First fill after writing landing and app backlogs for MVP 0.
+- 2026-10-23: Folded architecture rev 3 and founder decisions; added infra backlog; replaced open-question entries with decisions.
+- 2026-10-24: Added INF-00 (local development environment on Docker Desktop Kubernetes) and linked task APP-01.4; new AQ-27 – AQ-29.
+- 2026-10-24: Restructured all backlogs into Phase A (Local) / Phase B (AWS); split APP-70 into two tasks (app tasks 128).
+- 2026-10-24: Folded AQ-27 – AQ-29 answers (Traefik, kind provisioner 1.36, no Compose, config keys, parity allow-list); INF-00 now AC-1 – AC-21, VC-1 – VC-30.
