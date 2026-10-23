@@ -151,6 +151,7 @@ You maintain the **Project knowledge** section at the end of this file.
 - Docs in US English. Commits: `<type>(#<issue>): <description>`.
 
 ## Decisions
+- 2026-10-24 founder: two phases. Phase A "Local" = INF-00 + all landing/app build stories accepted on the local stand and CI; Phase B "AWS" = INF-01–15, APP-01.3, APP-04.2, APP-70.2, all "Prod check" rows, landing go-live, beta. Every story has a **Phase** field (A, B or A/B). Phase B entry criterion is defined in `backlog-app.md` §1.
 - 2026-10-23 founder: FQ-01 = yes (persona, LP-11 Should); FQ-02 = yes (base change, APP-68); worldwide sign-up with sanctions block and min age max(14, country override); no staging; repos `app` and `infra` approved.
 - Pending founder confirmation (reported as conflicts): MON-06 wording for base change, weekend rates "as published", Q1 options for non-US waitlist visitors.
 
@@ -158,4 +159,5 @@ You maintain the **Project knowledge** section at the end of this file.
 - 2026-10-23: First fill after writing landing and app backlogs for MVP 0.
 - 2026-10-23: Folded architecture rev 3 and founder decisions; added infra backlog; replaced open-question entries with decisions.
 - 2026-10-24: Added INF-00 (local development environment on Docker Desktop Kubernetes) and linked task APP-01.4; new AQ-27 – AQ-29.
+- 2026-10-24: Restructured all backlogs into Phase A (Local) / Phase B (AWS); split APP-70 into two tasks (app tasks 128).
 - 2026-10-24: Folded AQ-27 – AQ-29 answers (Traefik, kind provisioner 1.36, no Compose, config keys, parity allow-list); INF-00 now AC-1 – AC-21, VC-1 – VC-30.
