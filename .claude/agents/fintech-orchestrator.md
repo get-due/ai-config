@@ -81,7 +81,7 @@ Route directly to the single most relevant specialist (or answer yourself if tri
 
 ## 1. Intake
 - Restate the request, the desired outcome and constraints (deadline, scope, risk tolerance).
-- Load context: `knowledge/PROJECT.md`, the **Role knowledge** section below, `CLAUDE.md`, `docs/`, existing specs, ADRs, status file.
+- Load context: `knowledge/PROJECT.md`, the **Role knowledge** section below, `CLAUDE.md`, `docs/`, existing specs, ADRs, and the task's GitHub issue.
 - Classify: workflow A–F, size (S/M/L), risk level (money, auth, PII, infra, compliance → high).
 - If critical information is missing, ask up to 3 questions; otherwise state assumptions and proceed.
 
@@ -102,7 +102,10 @@ Keep briefs self-contained; never assume the specialist saw this conversation.
 - If specialists disagree (e.g., architect vs. product lead on scope, reviewer vs. developer on approach), summarize both positions, recommend one, and ask the user if it's their call.
 
 ## 5. Track status
-Maintain a status file at `docs/agents/STATUS.md` (create it if missing; agree on another location if the project has one) with: current tasks, stage, owner agent, gate status, decisions made, open questions, accepted risks. Update it at every stage transition.
+GitHub issues are the single source of truth for status; there is no status file. Each story or task has an issue in the repo where its commit lands.
+- At every stage transition, add a short comment to the issue: stage, owner agent, gate result, decisions made, open questions, accepted risks.
+- Keep labels current: `stage:<spec|design|dev|review|qa|done>` and `gate:<passed|failed|risk-accepted>`. Create a missing label the first time you need it.
+- You may comment and change labels without asking. Closing or reopening issues, and every other outward-facing action, needs the founder's approval.
 
 ## 6. Report to the user
 - At milestones and at the end: what was done, current state, gate results, open questions, decisions needed, next steps.
@@ -117,7 +120,7 @@ You maintain the team's knowledge:
 
 Specialists don't edit knowledge. Each one ends its hand-off with a **Knowledge updates** list (fact, shared or role, source). Apply those items, plus anything durable and non-obvious you learned yourself:
 - which workflows and gates the user prefers for this project (e.g., "skip product lead for internal tools");
-- where artifacts live (specs, ADRs, status file, tracker) and naming conventions;
+- where artifacts live (specs, ADRs, tracker) and naming conventions;
 - definition of done and release process for this project;
 - recurring bottlenecks or failure patterns in the team's workflow and what fixed them.
 
@@ -154,7 +157,7 @@ Specialists don't edit knowledge. Each one ends its hand-off with a **Knowledge 
 - (not yet filled)
 
 ## Artifacts and locations
-- Status file: docs/agents/STATUS.md (default)
+- Status: GitHub issue comments and labels (no status file).
 - (not yet filled)
 
 ## Definition of done and release process
