@@ -64,24 +64,26 @@ One story = one issue = one branch from `main` = one PR. Stack PRs only when a s
 **Walking skeleton first:** the first story in each code repo sets up the build, tests, lint, a GitHub Actions CI workflow and the repo's `CLAUDE.md` with its commands. Until that story is merged, the build and test gates mean "every check that exists ran locally, and the output is in the issue comment." After that, CI must also pass on the PR before you merge.
 
 0. Give the story's issue number (created by the product lead) to every agent you brief. For chores — knowledge commits, agent changes in `ai`, walking skeletons, docs work — create the issue yourself.
-1. `fintech-developer` → plan, risks, implementation, tests, hand-off notes, on a branch `<type>/<issue>-<slug>` from `main`, committed in the `CLAUDE.md` format.
+1. `fintech-qa` (plan) → writes the Testing section of the issue: risk table, test cases, test data, regression areas.
+   **Gate:** every acceptance criterion and every required security control has at least one test case.
+2. `fintech-developer` → reads the whole issue, then plan, risks, implementation, tests, hand-off notes, on a branch `<type>/<issue>-<slug>` from `main`, committed in the `CLAUDE.md` format.
    **Gate:** builds, tests pass, hand-off lists what changed and what to test.
-2. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel, on the branch diff against `main`. Both post their results as issue comments, so running them together is safe.
-   **Gate:** no Blockers/Majors, no Critical/High security findings. Otherwise → back to step 1 with findings.
-3. `fintech-qa` → test against acceptance criteria, edge cases, regression; add automated tests.
-   **Gate:** verdict Ready (or Ready with known issues accepted by the user). Otherwise → back to step 1 with bug reports.
-4. Ship (merge gate: CI passes on the PR, once the repo has CI): show the founder the commit line, then push the branch and open the PR as `CLAUDE.md` describes. Squash-merge only after the founder says "merge". Fixes from review and QA stay on the same branch; the squash keeps one commit per issue.
-5. Done: summarize to the user.
+3. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel, on the branch diff against `main`. Both post their results as issue comments, so running them together is safe.
+   **Gate:** no Blockers/Majors, no Critical/High security findings. Otherwise → back to step 2 with findings.
+4. `fintech-qa` (run) → test against the Testing section, acceptance criteria, edge cases and regression; add automated tests; post the results as an issue comment.
+   **Gate:** verdict Ready (or Ready with known issues accepted by the user). Otherwise → back to step 2 with bug reports.
+5. Ship (merge gate: CI passes on the PR, once the repo has CI): show the founder the commit line, then push the branch and open the PR as `CLAUDE.md` describes. Squash-merge only after the founder says "merge". Fixes from review and QA stay on the same branch; the squash keeps one commit per issue.
+6. Done: summarize to the user.
 
-**Docs work** (PRDs, backlogs, ADRs from the product lead, analyst or architect): those agents have no shell. Create the issue in `get-due/docs` and a branch in `../docs` before briefing them, then commit their files in the `CLAUDE.md` format and ship as in step 4.
+**Docs work** (PRDs, cross-story backlog docs, ADRs from the product lead, analyst or architect): those agents use Bash only for `gh issue` and never run git. Create the issue in `get-due/docs` and a branch in `../docs` before briefing them, then commit their files in the `CLAUDE.md` format and ship as in step 5.
 
 ## D. Bug fix
 0. `fintech-product-lead` (light step) → creates the bug issue with only the Product section: impact, priority, phase, repo.
-1. `fintech-qa` (if reproduction is unclear) → reproduction steps and evidence.
+1. `fintech-qa` → reproduction steps and evidence (if reproduction is unclear), and the Testing section with the regression cases.
 2. `fintech-developer` → root cause, fix, regression test.
 3. `fintech-code-reviewer` → review. Add `fintech-security` if the bug has security impact.
 4. `fintech-qa` → verify fix and regression.
-5. Ship as in workflow C, steps 4–5.
+5. Ship as in workflow C, steps 5–6.
 For production incidents: prioritize mitigation (rollback, feature flag, hotfix) over root cause, then run the full loop.
 
 ## E. Review or audit of existing code/system

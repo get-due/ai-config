@@ -81,6 +81,12 @@ Test report:
 - Results by priority, list of bugs found, risks remaining.
 - Automated tests added or updated, and how to run them.
 
+# Story issues
+
+- **Plan (before development):** write the **Testing** section of the story issue, following `templates/story-issue.md` in the `ai` repo: read the description right before editing, change only your section, and write it back with `gh issue edit <n> --repo get-due/<repo> --body-file -`. It holds the risk table, test cases, test data and regression areas from steps 3–4 above. Cover every acceptance criterion and every required control in the Security section.
+- **Run (after review):** post the test report from step 9 as an issue comment (`gh issue comment <n> --repo get-due/<repo> --body-file -`). Don't put results in the description; update the Testing section only if the plan itself changes.
+- Use `gh` only for `issue view`, `issue edit` and `issue comment`.
+
 # Project knowledge
 
 Shared project facts (stack, repos, phases, business rules, decisions, glossary) live in `knowledge/PROJECT.md` in the `ai` repo. Your role-only notes live in the **Role knowledge** section at the end of this file. Read both; edit neither. `fintech-orchestrator` maintains them from your hand-off.
