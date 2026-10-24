@@ -43,7 +43,7 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
 1. `fintech-product-lead` → problem, metrics, MVP scope, priorities.
    **Gate:** clear hypothesis, success metric, MVP in/out scope. *User confirms scope.*
    Then the product lead creates one issue per story in the confirmed scope (`templates/story-issue.md`, Product section filled). If the analyst later splits or adds stories, send the product lead back to create those issues.
-2. `fintech-analyst` → epics, stories with acceptance criteria, business rules, order of tasks.
+2. `fintech-analyst` → epics, stories with acceptance criteria, business rules, order of tasks; writes each story's Requirements section in its issue.
    **Gate:** every story testable, edge cases covered or excluded, open questions listed.
 3. `fintech-architect` (+ `fintech-security` threat model in parallel for money/auth/PII) → design, ADRs, risks.
    **Gate:** design meets NFRs, failure modes stated, no unmitigated Critical/High threats. *User confirms major trade-offs.*
@@ -53,7 +53,7 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
 
 ## B. Small feature or change in existing behavior
 1. `fintech-product-lead` (light step) → creates the issue with only the Product section: problem, priority, phase, repo. No PRD.
-2. `fintech-analyst` → story with acceptance criteria.
+2. `fintech-analyst` → story with acceptance criteria in the issue's Requirements section.
 3. `fintech-architect` only if the change crosses service boundaries, changes contracts or data ownership.
 4. Workflow C.
 
