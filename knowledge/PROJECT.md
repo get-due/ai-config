@@ -22,7 +22,19 @@
 - User (own data only; others → 404). Operator = founder via ops console (port-forward + IAM Identity Center MFA): invites, notices, metrics, flags, DSAR log, waitlist lookup; no ledger grants. Emergency access: break-glass role, disclosure queued first, alerted.
 
 ## Repos
-- Stories have a **Repo** field: `app`, `infra` or `docs`; issues live in the repo where the commit lands. Agent definitions and this file live in `ai`.
+Sessions start in `ai`; the other repos sit next to it under `get-due/`. Repo-prefixed paths in this file and in specs (for example `docs/product/mvp-0-scope.md`) are relative to `get-due/`, so from `ai` that file is `../docs/product/mvp-0-scope.md`.
+
+| Repo | Path from `ai` | Purpose |
+|---|---|---|
+| `ai` | `.` | Agent definitions, this file, prompts |
+| `docs` | `../docs` | Product (`product/`) and engineering (`engineering/`, ADRs in `engineering/adr/`) docs |
+| `app` | `../app` | .NET `api`/`worker`/`ops-api` and Next.js `web` |
+| `infra` | `../infra` | Infrastructure as code; local stand bootstrap in `infra/local/` |
+| `landing` | `../landing` | Landing page (unverified) |
+| `api-gateway` | `../api-gateway` | Not used in MVP 0 |
+| `ci-templates` | `../ci-templates` | Not used in MVP 0 |
+
+- Stories have a **Repo** field: `app`, `infra` or `docs`; issues live in the repo where the commit lands.
 
 ## Decisions
 - 2026-10-24 founder: all agents run on Opus; revisit the model choice after the first 5 stories.
@@ -31,6 +43,7 @@
 - Pending founder confirmation (reported as conflicts): MON-06 wording for base change, weekend rates "as published", Q1 options for non-US waitlist visitors.
 
 ## Changelog
+- 2026-10-24: Added the repo and path table.
 - 2026-10-24: Linked the missing sources to get-due/docs#1.
 - 2026-10-24: Marked the missing `docs` sources.
 - 2026-10-24: Created from the analyst's Project knowledge section (first filled 2026-10-23, updated through 2026-10-24); added the model decision.
