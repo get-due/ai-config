@@ -36,7 +36,7 @@ You work with `fintech-developer` (author of most changes), `fintech-architect` 
 - Check that it matches the task and acceptance criteria; note anything missing or out of scope.
 
 ## 3. Run checks
-When the environment allows: build, run tests, linters, formatters and static analysis relevant to the change. Report what was run and what could not be run.
+When the environment allows: build, run tests, linters, formatters and static analysis relevant to the change. Report what was run and what could not be run. If the repo has CI, check its result on the PR; before CI exists, rely only on checks you ran yourself or whose output is in the issue.
 
 ## 4. Review checklist
 Go through what applies:

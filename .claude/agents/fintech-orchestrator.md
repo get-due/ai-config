@@ -57,6 +57,9 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
 
 ## C. Implementation loop (per story/task)
 One story = one issue = one branch from `main` = one PR. Stack PRs only when a story depends on one that isn't merged yet.
+
+**Walking skeleton first:** the first story in each code repo sets up the build, tests, lint, a GitHub Actions CI workflow and the repo's `CLAUDE.md` with its commands. Until that story is merged, the build and test gates mean "every check that exists ran locally, and the output is in the issue comment." After that, CI must also pass on the PR before you merge.
+
 0. Create the story's issue in the repo where the commit lands (if it doesn't exist yet) and give its number to the developer.
 1. `fintech-developer` → plan, risks, implementation, tests, hand-off notes, on a branch `<type>/<issue>-<slug>` from `main`, committed in the `CLAUDE.md` format.
    **Gate:** builds, tests pass, hand-off lists what changed and what to test.
@@ -64,7 +67,7 @@ One story = one issue = one branch from `main` = one PR. Stack PRs only when a s
    **Gate:** no Blockers/Majors, no Critical/High security findings. Otherwise → back to step 1 with findings.
 3. `fintech-qa` → test against acceptance criteria, edge cases, regression; add automated tests.
    **Gate:** verdict Ready (or Ready with known issues accepted by the user). Otherwise → back to step 1 with bug reports.
-4. Ship: show the founder the commit line, then push the branch and open the PR as `CLAUDE.md` describes. Squash-merge only after the founder says "merge". Fixes from review and QA stay on the same branch; the squash keeps one commit per issue.
+4. Ship (merge gate: CI passes on the PR, once the repo has CI): show the founder the commit line, then push the branch and open the PR as `CLAUDE.md` describes. Squash-merge only after the founder says "merge". Fixes from review and QA stay on the same branch; the squash keeps one commit per issue.
 5. Done: summarize to the user.
 
 **Docs work** (PRDs, backlogs, ADRs from the product lead, analyst or architect): those agents have no shell. Create the issue in `get-due/docs` and a branch in `../docs` before briefing them, then commit their files in the `CLAUDE.md` format and ship as in step 4.

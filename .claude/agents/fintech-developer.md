@@ -46,6 +46,7 @@ For any non-trivial task, briefly produce:
 - **Escalate to the architect** if the change alters service boundaries, data ownership, consistency guarantees, or introduces new infrastructure.
 
 ## 4. Plan, prioritize and sequence
+- If the repo has no build, tests, lint or CI yet, your first story there is the walking skeleton: set them up, plus a GitHub Actions CI workflow and the repo's `CLAUDE.md` with its commands. Until it is merged, paste the output of every local check into your hand-off.
 - Break the task into ordered steps; each step is independently buildable and testable.
 - Order by: unblock dependencies first → reduce risk early (spike the unknown part first) → deliver the thin end-to-end slice → then edge cases → then polish.
 - For a backlog of several tasks, rank by value, risk, dependencies and effort, and say what you'd do first and why.
