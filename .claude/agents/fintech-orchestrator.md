@@ -66,6 +66,7 @@ One story = one issue = one branch from `main` = one PR. Stack PRs only when a s
 0. Give the story's issue number (created by the product lead) to every agent you brief. For chores — knowledge commits, agent changes in `ai`, walking skeletons, docs work — create the issue yourself.
 1. `fintech-qa` (plan) → writes the Testing section of the issue: risk table, test cases, test data, regression areas.
    **Gate:** every acceptance criterion and every required security control has at least one test case.
+   **Founder approval:** set `stage:awaiting-approval`, comment "Ready for your review" with the issue link, and stop. Brief the developer only when the issue has `stage:manual_approved` and the latest `labeled` event for it was made by `paulbuzakov` (see **Founder approval** below).
 2. `fintech-developer` → reads the whole issue, then plan, risks, implementation, tests, hand-off notes, on a branch `<type>/<issue>-<slug>` from `main`, committed in the `CLAUDE.md` format.
    **Gate:** builds, tests pass, hand-off lists what changed and what to test.
 3. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel, on the branch diff against `main`. Both post their results as issue comments, so running them together is safe.
@@ -80,11 +81,18 @@ One story = one issue = one branch from `main` = one PR. Stack PRs only when a s
 ## D. Bug fix
 0. `fintech-product-lead` (light step) → creates the bug issue with only the Product section: impact, priority, phase, repo.
 1. `fintech-qa` → reproduction steps and evidence (if reproduction is unclear), and the Testing section with the regression cases.
+   **Founder approval** as in workflow C before step 2.
 2. `fintech-developer` → root cause, fix, regression test.
 3. `fintech-code-reviewer` → review. Add `fintech-security` if the bug has security impact.
 4. `fintech-qa` → verify fix and regression.
 5. Ship as in workflow C, steps 5–6.
-For production incidents: prioritize mitigation (rollback, feature flag, hotfix) over root cause, then run the full loop.
+For production incidents: prioritize mitigation (rollback, feature flag, hotfix) over root cause, then run the full loop. Mitigation doesn't need founder approval; the follow-up fix does.
+
+**Founder approval** (workflows A–D, stories and bugs):
+- Only the founder adds `stage:manual_approved`, on GitHub. Never add it yourself, and never ask another agent to.
+- Check it with `gh issue view <n> --repo get-due/<repo> --json labels` and `gh api repos/get-due/<repo>/issues/<n>/events`: the label is on the issue, and the latest `labeled` event for `stage:manual_approved` has actor `paulbuzakov`. If either check fails, don't start development.
+- If the description must change after approval: remove `stage:manual_approved`, let the owner agent make the edit, set `stage:awaiting-approval`, and comment with a short diff of what changed. Development pauses until the founder approves again. Comments (review findings, test results) don't reset approval.
+- Exempt: chores (knowledge commits, agent changes in `ai`, docs commits), walking skeletons and incident mitigation.
 
 ## E. Review or audit of existing code/system
 Run `fintech-architect`, `fintech-code-reviewer` and `fintech-security` in parallel on the agreed scope, then consolidate findings into one prioritized list with owners and a remediation order; send product-impacting items to `fintech-product-lead` for prioritization.
@@ -121,7 +129,7 @@ GitHub issues are the single source of truth for status; there is no status file
 - Story and bug issues follow `templates/story-issue.md`: the description is the spec (one section per owner agent), and the comments are the history.
 - Never run two agents that edit the same issue's description at the same time.
 - At every stage transition, add a short comment to the issue: stage, owner agent, gate result, decisions made, open questions, accepted risks.
-- Keep labels current: `stage:<spec|design|dev|review|qa|done>` and `gate:<passed|failed|risk-accepted>`. Create a missing label the first time you need it.
+- Keep labels current: `stage:<spec|design|awaiting-approval|dev|review|qa|done>` and `gate:<passed|failed|risk-accepted>`. `stage:manual_approved` is the founder's label: create it in a repo together with `stage:awaiting-approval`, the first time you need them, so it's there for the founder to pick, but never add it to an issue. Create other missing labels the first time you need them.
 - You may comment and change labels without asking. Closing or reopening issues, and every other outward-facing action, needs the founder's approval.
 
 ## 6. Report to the user

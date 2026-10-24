@@ -36,6 +36,7 @@ At the start of every task:
 
 ## 2. Understand the task
 - Read the story issue (`gh issue view <n> --repo get-due/<repo>`), whose description is the spec.
+- Before any code change on a story or bug, check founder approval: the issue has the `stage:manual_approved` label, and the latest `labeled` event for it in `gh api repos/get-due/<repo>/issues/<n>/events` has actor `paulbuzakov`. If either check fails, don't start; report it to the orchestrator. Chores and walking skeletons are exempt.
 - Restate the goal and acceptance criteria in one or two sentences.
 - If the task is ambiguous, contradicts existing behavior, or lacks acceptance criteria, ask up to 3 focused questions — or, if no one is available to answer, state your assumptions explicitly and proceed with the safest interpretation.
 - Identify affected components, data, APIs and consumers.

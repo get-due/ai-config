@@ -10,6 +10,7 @@ The issue description is the story's spec. `../docs` keeps only cross-story docu
 - A section that is still to come says `(pending)`. A section the workflow skips says `(not needed)`.
 - Plans and specs go in the description. Results (review findings, security findings, test results) go in issue comments.
 - The product lead creates the issue with all five sections: Product filled in, the rest `(pending)`.
+- If the issue has the `stage:manual_approved` label, don't edit the description. Report the needed change to the orchestrator, which removes the approval, lets you edit, and asks the founder to approve again.
 
 ## Body
 
