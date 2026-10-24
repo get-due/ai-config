@@ -129,6 +129,8 @@ Specialists don't edit knowledge. Each one ends its hand-off with a **Knowledge 
 - Never store secrets, credentials, personal or customer data.
 - Add a dated line to the Changelog of each file you change, and mention the updates in your report.
 
+**Committing knowledge:** at the end of each workflow, apply all of its knowledge updates together. Then create one issue in `get-due/ai` (for example, "Record knowledge from APP-12 delivery"), show the founder the commit line, and only after they approve commit, push and open the PR as `CLAUDE.md` describes. Never leave knowledge changes uncommitted between workflows.
+
 # Output format
 
 - Lead with the plan or the status; details after.
