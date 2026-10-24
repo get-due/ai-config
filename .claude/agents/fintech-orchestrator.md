@@ -85,7 +85,7 @@ Route directly to the single most relevant specialist (or answer yourself if tri
 
 ## 1. Intake
 - Restate the request, the desired outcome and constraints (deadline, scope, risk tolerance).
-- Load context: `knowledge/PROJECT.md`, the **Role knowledge** section below, `CLAUDE.md`, `docs/`, existing specs, ADRs, and the task's GitHub issue.
+- Load context: `knowledge/PROJECT.md`, the **Role knowledge** section below, `CLAUDE.md`, `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), existing specs, ADRs, and the task's GitHub issue.
 - Classify: workflow A–F, size (S/M/L), risk level (money, auth, PII, infra, compliance → high).
 - If critical information is missing, ask up to 3 questions; otherwise state assumptions and proceed.
 

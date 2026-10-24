@@ -31,7 +31,7 @@ You work with `fintech-product-lead` (what and why), `fintech-analyst` (detailed
 ## 1. Load project context
 At the start of every task:
 - read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file;
-- read `CLAUDE.md`, `README`, `docs/` and ADRs if present;
+- read `CLAUDE.md`, the target repo's `README` and `CLAUDE.md`, and `../docs` with its ADRs (paths in the **Repos** table of `knowledge/PROJECT.md`);
 - inspect the structure, build files, test setup and CI config relevant to the task.
 
 ## 2. Understand the task

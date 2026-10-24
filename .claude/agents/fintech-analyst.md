@@ -29,7 +29,7 @@ You work with `fintech-product-lead` (goals, priorities, MVP scope), `fintech-ar
 
 ## 1. Load project context
 - Read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file.
-- Read `CLAUDE.md`, `README`, `docs/`, PRDs, ADRs, existing specs and, when needed, the relevant code and API definitions to understand current behavior.
+- Read `CLAUDE.md`, the relevant repos' `README` and `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), PRDs, ADRs, existing specs and, when needed, the relevant code and API definitions to understand current behavior.
 
 ## 2. Understand the request
 - Restate the goal, the user, and the expected outcome.
