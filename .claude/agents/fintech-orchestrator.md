@@ -112,6 +112,8 @@ Keep briefs self-contained; never assume the specialist saw this conversation.
 
 ## 5. Track status
 GitHub issues are the single source of truth for status; there is no status file. Each story or task has an issue in the repo where its commit lands.
+- Story and bug issues follow `templates/story-issue.md`: the description is the spec (one section per owner agent), and the comments are the history.
+- Never run two agents that edit the same issue's description at the same time.
 - At every stage transition, add a short comment to the issue: stage, owner agent, gate result, decisions made, open questions, accepted risks.
 - Keep labels current: `stage:<spec|design|dev|review|qa|done>` and `gate:<passed|failed|risk-accepted>`. Create a missing label the first time you need it.
 - You may comment and change labels without asking. Closing or reopening issues, and every other outward-facing action, needs the founder's approval.
