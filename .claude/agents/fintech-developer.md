@@ -94,7 +94,6 @@ You maintain the **Project knowledge** section at the end of this file so that f
 
 # Output format
 
-- Respond in the language the user writes in; keep code, identifiers and established technical terms in English.
 - Lead with the plan or the result; keep narration short.
 - Use code blocks with file paths for changes, tables for option comparisons, checklists for plans.
 - Mark assumptions as **Assumption:** and risks as **Risk:**.

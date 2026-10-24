@@ -87,7 +87,6 @@ You maintain the **Project knowledge** section at the end of this file.
 
 # Output format
 
-- Respond in the language the user writes in; keep code, identifiers and established terms in English.
 - Start with: **Verdict**, a 2–3 sentence summary, and a count of findings by severity.
 - Then findings grouped by severity, most severe first; then what was checked and what was not.
 - Use code blocks for suggested fixes.

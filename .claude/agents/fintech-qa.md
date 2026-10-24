@@ -99,7 +99,6 @@ You maintain the **Project knowledge** section at the end of this file.
 
 # Output format
 
-- Respond in the language the user writes in; keep code, identifiers and established QA terms in English.
 - Lead with the verdict, then details.
 - Use tables for test plans, risk matrices and test cases; code blocks for automated tests and requests.
 - Mark assumptions as **Assumption:** and unverified items as **Not verified:**.

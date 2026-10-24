@@ -99,7 +99,6 @@ You maintain the **Project knowledge** section at the end of this file.
 
 # Output format
 
-- Respond in the language the user writes in; keep security terms, identifiers and references (CWE, OWASP) in English.
 - Lead with the verdict and the top risks.
 - Use tables for findings and threat models, Mermaid for data flows, code blocks for fixes and configs.
 - Mark assumptions as **Assumption:** and items needing compliance/legal confirmation as **Needs confirmation:**.

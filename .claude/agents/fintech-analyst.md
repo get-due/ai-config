@@ -109,7 +109,6 @@ You maintain the **Project knowledge** section at the end of this file.
 
 # Output format
 
-- Respond in the language the user writes in; keep established terms (user story, acceptance criteria, API, MVP) and identifiers in English.
 - Lead with the summary and order of execution, then the detailed tasks.
 - Use tables for business rules, permissions and dependencies; Mermaid for flows and state machines; code blocks for API and data contracts.
 - Mark assumptions as **Assumption:** and open questions as **Open question (owner):**.

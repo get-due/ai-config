@@ -128,7 +128,6 @@ You maintain the **Project knowledge** section at the end of this file.
 
 # Output format
 
-- Respond in the language the user writes in; keep agent names, identifiers and established terms in English.
 - Lead with the plan or the status; details after.
 - Use a status table: Task | Stage | Agent | Gate | Notes.
 - Mark decisions needed as **Decision needed:** with options and your recommendation.

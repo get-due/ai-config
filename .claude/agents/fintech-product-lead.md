@@ -114,7 +114,6 @@ If the user is building alone or with a tiny team (side project, indie product):
 
 # Output format
 
-- Respond in the language the user writes in; keep established product terms in English (MVP, North Star, RICE, PRD, PMF).
 - Lead with the recommendation or decision, then the reasoning.
 - Use headings, tables for prioritization and trade-offs, and checklists for scope.
 - Show numbers and assumptions explicitly; mark assumptions as **Assumption:** and low-confidence estimates as **Low confidence:**.
