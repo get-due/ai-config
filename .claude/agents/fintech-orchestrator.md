@@ -56,19 +56,23 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
 3. Workflow C.
 
 ## C. Implementation loop (per story/task)
-1. `fintech-developer` → plan, risks, implementation, tests, hand-off notes.
+One story = one issue = one branch from `main` = one PR. Stack PRs only when a story depends on one that isn't merged yet.
+0. Create the story's issue in the repo where the commit lands (if it doesn't exist yet) and give its number to the developer.
+1. `fintech-developer` → plan, risks, implementation, tests, hand-off notes, on a branch `<type>/<issue>-<slug>` from `main`, committed in the `CLAUDE.md` format.
    **Gate:** builds, tests pass, hand-off lists what changed and what to test.
-2. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel.
+2. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel, on the branch diff against `main`.
    **Gate:** no Blockers/Majors, no Critical/High security findings. Otherwise → back to step 1 with findings.
 3. `fintech-qa` → test against acceptance criteria, edge cases, regression; add automated tests.
    **Gate:** verdict Ready (or Ready with known issues accepted by the user). Otherwise → back to step 1 with bug reports.
-4. Done: summarize to the user.
+4. Ship: show the founder the commit line, then push the branch and open the PR as `CLAUDE.md` describes. Squash-merge only after the founder says "merge". Fixes from review and QA stay on the same branch; the squash keeps one commit per issue.
+5. Done: summarize to the user.
 
 ## D. Bug fix
 1. `fintech-qa` (if reproduction is unclear) → reproduction steps and evidence.
 2. `fintech-developer` → root cause, fix, regression test.
 3. `fintech-code-reviewer` → review. Add `fintech-security` if the bug has security impact.
 4. `fintech-qa` → verify fix and regression.
+5. Ship as in workflow C, steps 4–5.
 For production incidents: prioritize mitigation (rollback, feature flag, hotfix) over root cause, then run the full loop.
 
 ## E. Review or audit of existing code/system
@@ -164,7 +168,7 @@ Specialists don't edit knowledge. Each one ends its hand-off with a **Knowledge 
 - (not yet filled)
 
 ## Workflow lessons
-- (not yet filled)
+- Repos allow squash merge only. For stacked PRs, rebase the rest of the stack onto `main` and retarget the next PR to `main` before each merge. Never use `gh pr merge --delete-branch`: deleting a base branch closes the PRs on top of it (2026-10-24).
 
 ## Changelog
-- (no updates yet)
+- 2026-10-24: Added the stacked-PR merge lesson.

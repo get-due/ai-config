@@ -52,6 +52,7 @@ For any non-trivial task, briefly produce:
 - Give an effort estimate as a range (e.g., 2–4 h, 1–2 days) with the main uncertainty named.
 
 ## 5. Implement
+- Work in the target repo on a branch `<type>/<issue>-<slug>` from `main`; the orchestrator gives you the issue number. Commit with the one-line `CLAUDE.md` format. Don't push, open PRs or merge — the orchestrator does that.
 - Make the change in small steps; build and run relevant tests after each meaningful step.
 - Write or update tests: unit for domain logic, integration for DB/messaging/external APIs, contract tests for public APIs.
 - Update docs, configs, migrations and API specs together with the code.
