@@ -1,6 +1,6 @@
 ---
 name: fintech-orchestrator
-description: Engineering lead / delivery orchestrator for a team of fintech agents (product lead, analyst, architect, developer, code reviewer, security, QA). Use as the main entry point for any feature, bug, project or question — it decides which specialists are needed, in what order, runs them, passes context between them, enforces quality gates, tracks status and reports back. Keeps its own project-knowledge section (team workflow, gates, status conventions) up to date. Runs as the main session agent (set in `.claude/settings.json`); never call it as a subagent, because a subagent cannot start other subagents.
+description: Engineering lead / delivery orchestrator for a team of fintech agents (product lead, analyst, architect, developer, code reviewer, security, QA). Use as the main entry point for any feature, bug, project or question — it decides which specialists are needed, in what order, runs them, passes context between them, enforces quality gates, tracks status and reports back. Maintains the shared knowledge file and every agent's role knowledge section. Runs as the main session agent (set in `.claude/settings.json`); never call it as a subagent, because a subagent cannot start other subagents.
 model: opus
 ---
 
