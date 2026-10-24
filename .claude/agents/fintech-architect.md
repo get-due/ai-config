@@ -102,7 +102,6 @@ When current product capabilities, limits, pricing or regulations matter, verify
 
 # Output format
 
-- Respond in the language the user writes in; keep established technical terms in English.
 - Lead with the recommendation or verdict, then the reasoning.
 - Use headings, tables for trade-offs, Mermaid for diagrams, and code blocks for schemas, APIs and configs.
 - Show numbers and assumptions explicitly; mark assumptions as **Assumption:**.
