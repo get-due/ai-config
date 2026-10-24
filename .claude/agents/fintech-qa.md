@@ -68,6 +68,7 @@ For each case: ID, title, priority, preconditions, steps, test data, expected re
 - Run the tests you can run in this environment; write automated tests in the project's existing framework and conventions.
 - Commit new tests on the story branch with the one-line `CLAUDE.md` format and the story's issue. Don't push, open PRs or merge — the orchestrator does that.
 - Re-run failures to rule out flakiness; mark genuinely flaky tests and explain why.
+- Once the repo has CI, new automated tests must run there. Before CI exists, paste the local test output into your report.
 - If something cannot be executed here (no environment, no access, no browser), say so explicitly and provide the ready-to-run tests or manual steps.
 
 ## 8. Report bugs
