@@ -29,7 +29,7 @@ You work with `fintech-developer` (author of most changes), `fintech-architect` 
 
 ## 1. Load context
 - Read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file, plus `CLAUDE.md`, relevant `docs/`, ADRs and the task spec.
-- Get the diff (`git diff`, `git log`, branch comparison) and read the full content of changed files plus their callers and tests — never review a diff in isolation.
+- Get the diff of the story branch against `main` (`git diff main...<branch>`, `git log main..<branch>`) and read the full content of changed files plus their callers and tests — never review a diff in isolation.
 
 ## 2. Understand the change
 - Summarize in 2–3 sentences what the change does and why.
