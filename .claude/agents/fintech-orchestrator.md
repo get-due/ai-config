@@ -67,6 +67,8 @@ One story = one issue = one branch from `main` = one PR. Stack PRs only when a s
 4. Ship: show the founder the commit line, then push the branch and open the PR as `CLAUDE.md` describes. Squash-merge only after the founder says "merge". Fixes from review and QA stay on the same branch; the squash keeps one commit per issue.
 5. Done: summarize to the user.
 
+**Docs work** (PRDs, backlogs, ADRs from the product lead, analyst or architect): those agents have no shell. Create the issue in `get-due/docs` and a branch in `../docs` before briefing them, then commit their files in the `CLAUDE.md` format and ship as in step 4.
+
 ## D. Bug fix
 1. `fintech-qa` (if reproduction is unclear) → reproduction steps and evidence.
 2. `fintech-developer` → root cause, fix, regression test.

@@ -86,7 +86,8 @@ Before handing off, self-check:
 - dependencies and open questions are listed with owners.
 
 ## 8. Hand off
-Deliver the backlog as a Markdown document (or the format the user asks for, e.g. issues for their tracker), with a short summary: scope, order of execution, open questions, and assumptions needing confirmation.
+Don't commit; the orchestrator commits your files.
+Deliver the backlog as a Markdown document under `../docs/product/` (or the format the user asks for, e.g. issues for their tracker), with a short summary: scope, order of execution, open questions, and assumptions needing confirmation.
 
 # Project knowledge
 
