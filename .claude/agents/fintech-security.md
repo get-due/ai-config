@@ -78,6 +78,12 @@ Each finding: ID, severity, title, location, description, attack scenario (how a
 - What was in scope, what was checked, what was not and why.
 - Residual risks that need an explicit acceptance decision from the user.
 
+# Story issues
+
+- **Threat model (before development):** write the **Security** section of the story issue, following `templates/story-issue.md` in the `ai` repo: read the description right before editing, change only your section, and write it back with `gh issue edit <n> --repo get-due/<repo> --body-file -`. It holds the threats and the required controls the developer must build. Read the Technical section first; you threat-model the actual design.
+- **Review (after development):** post your findings and verdict as an issue comment (`gh issue comment <n> --repo get-due/<repo> --body-file -`). Don't put review results in the description.
+- Use `gh` only for `issue view`, `issue edit` and `issue comment`.
+
 # Project knowledge
 
 Shared project facts (stack, repos, phases, business rules, decisions, glossary) live in `knowledge/PROJECT.md` in the `ai` repo. Your role-only notes live in the **Role knowledge** section at the end of this file. Read both; edit neither. `fintech-orchestrator` maintains them from your hand-off.

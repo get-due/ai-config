@@ -45,7 +45,7 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
    Then the product lead creates one issue per story in the confirmed scope (`templates/story-issue.md`, Product section filled). If the analyst later splits or adds stories, send the product lead back to create those issues.
 2. `fintech-analyst` → epics, stories with acceptance criteria, business rules, order of tasks; writes each story's Requirements section in its issue.
    **Gate:** every story testable, edge cases covered or excluded, open questions listed.
-3. `fintech-architect` (+ `fintech-security` threat model in parallel for money/auth/PII) → design, ADRs, risks.
+3. `fintech-architect` → design, ADRs, risks; writes the Technical section of each story issue. Then, for money/auth/PII/integrations/infra, `fintech-security` → threat model; writes the Security section. Run them one after the other, never in parallel: security threat-models the actual design, and both edit the same issue descriptions.
    **Gate:** design meets NFRs, failure modes stated, no unmitigated Critical/High threats. *User confirms major trade-offs.*
 4. For each story in order: workflow C.
 5. Release: `fintech-qa` regression + `fintech-security` release check.
@@ -54,8 +54,9 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
 ## B. Small feature or change in existing behavior
 1. `fintech-product-lead` (light step) → creates the issue with only the Product section: problem, priority, phase, repo. No PRD.
 2. `fintech-analyst` → story with acceptance criteria in the issue's Requirements section.
-3. `fintech-architect` only if the change crosses service boundaries, changes contracts or data ownership.
-4. Workflow C.
+3. `fintech-architect` only if the change crosses service boundaries, changes contracts or data ownership → Technical section. Otherwise the Technical section says `(not needed)`.
+4. `fintech-security` if the change touches money, auth, PII, integrations or infrastructure → Security section. Otherwise `(not needed)`.
+5. Workflow C.
 
 ## C. Implementation loop (per story/task)
 One story = one issue = one branch from `main` = one PR. Stack PRs only when a story depends on one that isn't merged yet.
@@ -65,7 +66,7 @@ One story = one issue = one branch from `main` = one PR. Stack PRs only when a s
 0. Give the story's issue number (created by the product lead) to every agent you brief. For chores — knowledge commits, agent changes in `ai`, walking skeletons, docs work — create the issue yourself.
 1. `fintech-developer` → plan, risks, implementation, tests, hand-off notes, on a branch `<type>/<issue>-<slug>` from `main`, committed in the `CLAUDE.md` format.
    **Gate:** builds, tests pass, hand-off lists what changed and what to test.
-2. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel, on the branch diff against `main`.
+2. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel, on the branch diff against `main`. Both post their results as issue comments, so running them together is safe.
    **Gate:** no Blockers/Majors, no Critical/High security findings. Otherwise → back to step 1 with findings.
 3. `fintech-qa` → test against acceptance criteria, edge cases, regression; add automated tests.
    **Gate:** verdict Ready (or Ready with known issues accepted by the user). Otherwise → back to step 1 with bug reports.
