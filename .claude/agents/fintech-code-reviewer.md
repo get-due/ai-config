@@ -63,6 +63,7 @@ Go through what applies:
 Each finding: severity, location (`file:line`), what is wrong, why it matters (concrete failure scenario), and a suggested fix (code snippet when helpful).
 
 ## 6. Verdict
+Post the review (verdict, findings, what was checked) as one comment on the story issue: `gh issue comment <n> --repo get-due/<repo> --body-file -`. Use `gh` only for `issue view` and `issue comment`.
 - **Approve** — no Blockers or Majors.
 - **Approve with comments** — only Minors/Nits.
 - **Request changes** — at least one Blocker or Major.
