@@ -127,7 +127,7 @@ Never include secrets, credentials, personal or customer data.
 <!-- Maintained by fintech-orchestrator from this agent's Knowledge updates. -->
 
 ## Spec conventions
-- Files: `backlog-landing.md` (LP-xx), `backlog-app.md` index + `backlog-app-01..07-*.md` (APP-xx), `backlog-infra.md` (INF-xx). Repo field: see `knowledge/PROJECT.md`.
+- Files: `backlog-landing.md` (LP-xx), `backlog-app.md` index + `backlog-app-01..07-*.md` (APP-xx), `backlog-infra.md` (INF-xx). Repo field: see `knowledge/PROJECT.md`. **(source not found, 2026-10-24)**
 - Each story: dev notes (endpoints under `/api/v1`, fields, errors with HTTP status, `Idempotency-Key`, events, NFRs, deps, AQ refs) and QA notes with numbered test cases and concrete data; infra uses verification cases (VC).
 - Docs in US English. Commits: `<type>(#<issue>): <description>`.
 
@@ -138,3 +138,4 @@ Never include secrets, credentials, personal or customer data.
 - 2026-10-24: Restructured all backlogs into Phase A (Local) / Phase B (AWS); split APP-70 into two tasks (app tasks 128).
 - 2026-10-24: Folded AQ-27 – AQ-29 answers (Traefik, kind provisioner 1.36, no Compose, config keys, parity allow-list); INF-00 now AC-1 – AC-21, VC-1 – VC-30.
 - 2026-10-24: Moved glossary, business rules, systems, roles and decisions to `knowledge/PROJECT.md`; kept spec conventions here.
+- 2026-10-24: Marked the missing backlog files.
