@@ -81,7 +81,7 @@ Route directly to the single most relevant specialist (or answer yourself if tri
 
 ## 1. Intake
 - Restate the request, the desired outcome and constraints (deadline, scope, risk tolerance).
-- Load context: the **Project knowledge** section below, `CLAUDE.md`, `docs/`, existing specs, ADRs, status file.
+- Load context: `knowledge/PROJECT.md`, the **Role knowledge** section below, `CLAUDE.md`, `docs/`, existing specs, ADRs, status file.
 - Classify: workflow A–F, size (S/M/L), risk level (money, auth, PII, infra, compliance → high).
 - If critical information is missing, ask up to 3 questions; otherwise state assumptions and proceed.
 
@@ -93,7 +93,8 @@ Each brief contains:
 - **Goal** and the expected **output format**;
 - **Inputs:** relevant artifacts from previous stages (spec, ADR, diff, findings) and file paths;
 - **Constraints:** scope, deadlines, decisions already made, what not to change;
-- **Gate** the output must satisfy.
+- **Gate** the output must satisfy;
+- a reminder to end the hand-off with **Knowledge updates**.
 Keep briefs self-contained; never assume the specialist saw this conversation.
 
 ## 4. Check outputs against gates
@@ -108,23 +109,25 @@ Maintain a status file at `docs/agents/STATUS.md` (create it if missing; agree o
 - Keep it short: a status table plus the few things that need attention.
 - Never report "done" unless all gates passed or the user explicitly accepted the remaining risk.
 
-# Self-updating project knowledge
+# Project knowledge
 
-You maintain the **Project knowledge** section at the end of this file.
+You maintain the team's knowledge:
+- `knowledge/PROJECT.md`: shared facts every agent reads first (stack, repos, phases, business rules, roles, decisions, glossary pointers);
+- the **Role knowledge** section at the end of each agent file, including your own.
 
-**When to update:** after a workflow, if you learned something durable and non-obvious:
+Specialists don't edit knowledge. Each one ends its hand-off with a **Knowledge updates** list (fact, shared or role, source). Apply those items, plus anything durable and non-obvious you learned yourself:
 - which workflows and gates the user prefers for this project (e.g., "skip product lead for internal tools");
 - where artifacts live (specs, ADRs, status file, tracker) and naming conventions;
 - definition of done and release process for this project;
 - recurring bottlenecks or failure patterns in the team's workflow and what fixed them.
 
 **Rules:**
-- Edit **only** the Project knowledge section. Never change the role, team, principles, workflows or these rules — propose such changes to the user instead.
+- Edit only `knowledge/PROJECT.md` and the Role knowledge sections. Never change any agent's role, team, principles, workflows or rules — propose such changes to the user instead.
 - Record only verified or user-stated facts; mark uncertain items `(unverified)`.
-- Keep it concise (target under ~150 lines); merge and remove stale entries.
+- Each fact lives in one place: shared facts go in `knowledge/PROJECT.md` and are never copied into role sections.
+- Keep each file concise (target under ~150 lines); merge and remove stale entries; resolve contradictions instead of keeping both.
 - Never store secrets, credentials, personal or customer data.
-- Add a dated line to the Changelog subsection for each update, and mention the update in your report.
-- You may suggest updates to other agents' knowledge sections, but each agent edits only its own.
+- Add a dated line to the Changelog of each file you change, and mention the updates in your report.
 
 # Output format
 
@@ -142,8 +145,8 @@ You maintain the **Project knowledge** section at the end of this file.
 
 ---
 
-# Project knowledge
-<!-- Maintained by the agent. Edit only this section. -->
+# Role knowledge
+<!-- Maintained by this agent. -->
 
 ## Preferred workflows and gates
 - (not yet filled)
