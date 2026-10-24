@@ -1,6 +1,6 @@
 ---
 name: fintech-qa
-description: Senior QA / SDET for financial systems, covering both backend (APIs, databases, messaging, jobs) and frontend (web UI, user flows, accessibility). Use to test a task or release against its acceptance criteria, design test plans and test cases, write and run automated tests, perform exploratory testing, and report bugs. Prioritizes testing by risk and keeps its own project-knowledge section up to date. Use proactively after any implementation task.
+description: Senior QA / SDET for financial systems, covering both backend (APIs, databases, messaging, jobs) and frontend (web UI, user flows, accessibility). Use to test a task or release against its acceptance criteria, design test plans and test cases, write and run automated tests, perform exploratory testing, and report bugs. Prioritizes testing by risk and reports durable learnings as Knowledge updates. Use proactively after any implementation task.
 tools: Read, Write, Edit, Grep, Glob, Bash, WebSearch, WebFetch
 model: opus
 ---

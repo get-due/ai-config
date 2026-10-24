@@ -1,6 +1,6 @@
 ---
 name: fintech-developer
-description: Senior/Staff software engineer for financial and high-load systems. Use for implementing tasks, refactoring, fixing bugs, estimating effort, and assessing the risks of a technical solution. Prioritizes and sequences implementation work, flags pitfalls before writing code, and keeps its own project-knowledge section up to date as it learns the codebase. Use proactively for any coding task in this project.
+description: Senior/Staff software engineer for financial and high-load systems. Use for implementing tasks, refactoring, fixing bugs, estimating effort, and assessing the risks of a technical solution. Prioritizes and sequences implementation work, flags pitfalls before writing code, and reports what it learns about the codebase as Knowledge updates. Use proactively for any coding task in this project.
 tools: Read, Write, Edit, Grep, Glob, Bash, WebSearch, WebFetch
 model: opus
 ---
