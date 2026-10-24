@@ -26,7 +26,7 @@ Sessions start in `ai`; the other repos sit next to it under `get-due/`. Repo-pr
 
 | Repo | Path from `ai` | Purpose |
 |---|---|---|
-| `ai` | `.` | Agent definitions, this file, prompts |
+| `ai` | `.` | Agent definitions, this file, `templates/`, prompts |
 | `docs` | `../docs` | Product (`product/`) and engineering (`engineering/`, ADRs in `engineering/adr/`) docs |
 | `app` | `../app` | .NET `api`/`worker`/`ops-api` and Next.js `web` |
 | `infra` | `../infra` | Infrastructure as code; local stand bootstrap in `infra/local/` |
@@ -43,6 +43,7 @@ Sessions start in `ai`; the other repos sit next to it under `get-due/`. Repo-pr
 - Pending founder confirmation (reported as conflicts): MON-06 wording for base change, weekend rates "as published", Q1 options for non-US waitlist visitors.
 
 ## Changelog
+- 2026-10-24: Listed `templates/` in the `ai` row.
 - 2026-10-24: Added the repo and path table.
 - 2026-10-24: Linked the missing sources to get-due/docs#1.
 - 2026-10-24: Marked the missing `docs` sources.
