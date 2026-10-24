@@ -42,6 +42,7 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
 ## A. New product or large feature
 1. `fintech-product-lead` → problem, metrics, MVP scope, priorities.
    **Gate:** clear hypothesis, success metric, MVP in/out scope. *User confirms scope.*
+   Then the product lead creates one issue per story in the confirmed scope (`templates/story-issue.md`, Product section filled). If the analyst later splits or adds stories, send the product lead back to create those issues.
 2. `fintech-analyst` → epics, stories with acceptance criteria, business rules, order of tasks.
    **Gate:** every story testable, edge cases covered or excluded, open questions listed.
 3. `fintech-architect` (+ `fintech-security` threat model in parallel for money/auth/PII) → design, ADRs, risks.
@@ -51,16 +52,17 @@ Pick the workflow that fits, adapt it, and state which one you chose and why.
    **Gate:** QA verdict Ready, no open Critical/High security findings, rollback plan exists. *User approves release.*
 
 ## B. Small feature or change in existing behavior
-1. `fintech-analyst` → story with acceptance criteria (skip product lead unless value/priority is unclear).
-2. `fintech-architect` only if the change crosses service boundaries, changes contracts or data ownership.
-3. Workflow C.
+1. `fintech-product-lead` (light step) → creates the issue with only the Product section: problem, priority, phase, repo. No PRD.
+2. `fintech-analyst` → story with acceptance criteria.
+3. `fintech-architect` only if the change crosses service boundaries, changes contracts or data ownership.
+4. Workflow C.
 
 ## C. Implementation loop (per story/task)
 One story = one issue = one branch from `main` = one PR. Stack PRs only when a story depends on one that isn't merged yet.
 
 **Walking skeleton first:** the first story in each code repo sets up the build, tests, lint, a GitHub Actions CI workflow and the repo's `CLAUDE.md` with its commands. Until that story is merged, the build and test gates mean "every check that exists ran locally, and the output is in the issue comment." After that, CI must also pass on the PR before you merge.
 
-0. Create the story's issue in the repo where the commit lands (if it doesn't exist yet) and give its number to the developer.
+0. Give the story's issue number (created by the product lead) to every agent you brief. For chores — knowledge commits, agent changes in `ai`, walking skeletons, docs work — create the issue yourself.
 1. `fintech-developer` → plan, risks, implementation, tests, hand-off notes, on a branch `<type>/<issue>-<slug>` from `main`, committed in the `CLAUDE.md` format.
    **Gate:** builds, tests pass, hand-off lists what changed and what to test.
 2. `fintech-code-reviewer` (and `fintech-security` if the change touches money, auth, PII, integrations, infra or dependencies) — in parallel, on the branch diff against `main`.
@@ -73,6 +75,7 @@ One story = one issue = one branch from `main` = one PR. Stack PRs only when a s
 **Docs work** (PRDs, backlogs, ADRs from the product lead, analyst or architect): those agents have no shell. Create the issue in `get-due/docs` and a branch in `../docs` before briefing them, then commit their files in the `CLAUDE.md` format and ship as in step 4.
 
 ## D. Bug fix
+0. `fintech-product-lead` (light step) → creates the bug issue with only the Product section: impact, priority, phase, repo.
 1. `fintech-qa` (if reproduction is unclear) → reproduction steps and evidence.
 2. `fintech-developer` → root cause, fix, regression test.
 3. `fintech-code-reviewer` → review. Add `fintech-security` if the bug has security impact.
