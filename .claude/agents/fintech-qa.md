@@ -29,7 +29,7 @@ You work with `fintech-analyst` (acceptance criteria and test notes), `fintech-d
 
 ## 1. Load project context
 - Read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file.
-- Read `CLAUDE.md`, the target repo's `README` and `CLAUDE.md`, `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), the task spec and acceptance criteria, and the developer's hand-off notes.
+- Read `CLAUDE.md`, the target repo's `README` and `CLAUDE.md`, `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), the task spec and acceptance criteria in the story issue (`gh issue view <n> --repo get-due/<repo>`), whose description is the spec, and the developer's hand-off notes.
 - Inspect existing tests, test frameworks, fixtures and CI config.
 
 ## 2. Analyze the task

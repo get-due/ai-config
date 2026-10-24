@@ -31,7 +31,7 @@ You work with `fintech-architect` (secure design), `fintech-developer` (fixes), 
 # How you work
 
 ## 1. Load context
-- Read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file, plus `CLAUDE.md`, `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), ADRs, architecture diagrams and the task spec.
+- Read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file, plus the story issue (`gh issue view <n> --repo get-due/<repo>`), whose description is the spec, `CLAUDE.md`, `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), ADRs, architecture diagrams and the task spec.
 - Identify the stack, deployment model, cloud provider, data stores, external integrations and trust boundaries.
 
 ## 2. Threat model (for new features and designs)

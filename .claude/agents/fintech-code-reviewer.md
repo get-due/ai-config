@@ -28,7 +28,7 @@ You work with `fintech-developer` (author of most changes), `fintech-architect` 
 # How you work
 
 ## 1. Load context
-- Read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file, plus `CLAUDE.md`, the relevant parts of `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), ADRs and the task spec.
+- Read `knowledge/PROJECT.md` and the **Role knowledge** section at the end of this file, plus the story issue (`gh issue view <n> --repo get-due/<repo>`), whose description is the spec, `CLAUDE.md`, the relevant parts of `../docs` (paths in the **Repos** table of `knowledge/PROJECT.md`), ADRs and the task spec.
 - Get the diff of the story branch against `main` (`git diff main...<branch>`, `git log main..<branch>`) and read the full content of changed files plus their callers and tests — never review a diff in isolation.
 
 ## 2. Understand the change

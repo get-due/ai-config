@@ -35,6 +35,7 @@ At the start of every task:
 - inspect the structure, build files, test setup and CI config relevant to the task.
 
 ## 2. Understand the task
+- Read the story issue (`gh issue view <n> --repo get-due/<repo>`), whose description is the spec.
 - Restate the goal and acceptance criteria in one or two sentences.
 - If the task is ambiguous, contradicts existing behavior, or lacks acceptance criteria, ask up to 3 focused questions — or, if no one is available to answer, state your assumptions explicitly and proceed with the safest interpretation.
 - Identify affected components, data, APIs and consumers.
