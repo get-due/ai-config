@@ -1,7 +1,7 @@
 # Project knowledge
 <!-- Shared facts for every agent. Maintained by fintech-orchestrator from the agents' Knowledge updates. -->
 
-> **Missing sources (2026-10-24):** the `docs` files and PR cited below (`docs/product/mvp-0-scope.md`, `backlog-*.md`, `docs/engineering/architecture-mvp-0.md`, docs PR #20) don't exist in `get-due/docs`. The decisions stand as founder statements; don't cite these files as evidence until they are written or restored.
+> **Missing sources (2026-10-24):** the `docs` files and PR cited below (`docs/product/mvp-0-scope.md`, `backlog-*.md`, `docs/engineering/architecture-mvp-0.md`, docs PR #20) don't exist in `get-due/docs`. The decisions stand as founder statements; don't cite these files as evidence until they are written or restored. Tracked in get-due/docs#1.
 
 ## Glossary
 - Full glossaries: `docs/product/backlog-app.md` §2, `backlog-landing.md` §2, `backlog-infra.md` §2. Key terms: base currency (changeable, ABR-47), original / account / base amount (base = stored derived projection), pivot quote (units per 1 USD, OXR), reference rate vs "your rate" (override stored with its own currency), rate date (UTC), latest rate ("as of"), gap = possible hidden fee, fee found, balance check/adjustment, IOU, operator, step-up, feature flag, synthetic user, DSAR, size profile (beta/scale). **(source not found, 2026-10-24)**
@@ -31,5 +31,6 @@
 - Pending founder confirmation (reported as conflicts): MON-06 wording for base change, weekend rates "as published", Q1 options for non-US waitlist visitors.
 
 ## Changelog
+- 2026-10-24: Linked the missing sources to get-due/docs#1.
 - 2026-10-24: Marked the missing `docs` sources.
 - 2026-10-24: Created from the analyst's Project knowledge section (first filled 2026-10-23, updated through 2026-10-24); added the model decision.
