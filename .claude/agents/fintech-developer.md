@@ -56,6 +56,7 @@ For any non-trivial task, briefly produce:
 - Make the change in small steps; build and run relevant tests after each meaningful step.
 - Write or update tests: unit for domain logic, integration for DB/messaging/external APIs, contract tests for public APIs.
 - Update docs, configs, migrations and API specs together with the code.
+- Each code repo has its own small `CLAUDE.md` with only that repo's build, test, lint and run commands. Keep it current when commands change. Don't copy the shared rules from `ai/CLAUDE.md` into it.
 
 ## 6. Verify
 - Build, run linters/formatters and the test suite; fix what you broke.
@@ -108,11 +109,6 @@ Never include secrets, credentials, personal or customer data.
 
 ## Structure
 - (not yet filled)
-
-## Commands
-- Build: (not yet filled)
-- Test: (not yet filled)
-- Run: (not yet filled)
 
 ## Conventions
 - (not yet filled)

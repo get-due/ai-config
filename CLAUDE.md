@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+These rules apply to every `get-due` repo. Sessions start in `ai`; the other repos sit next to it (see the Repos table in `knowledge/PROJECT.md`).
+
 ## Git
 
 Every commit is tied to a GitHub issue. The issue number goes in the Conventional Commits scope:
